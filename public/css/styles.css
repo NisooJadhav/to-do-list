@@ -1,0 +1,104 @@
+h1:hover {
+    motion: auto;
+    display: inline-block;
+    text-shadow: 2px 2px rebeccapurple;
+}
+
+html {
+    min-height: 100vh;
+}
+
+span {
+    position: relative;
+}
+
+.spanH1::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: rebeccapurple;
+    transform-origin: bottom right;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
+
+.spanH1:hover::before {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+
+p,
+li {
+    list-style-type: none;
+    text-transform: capitalize;
+    margin-top: 0px;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    text-align: flex-start;
+    justify-content: center;
+}
+
+input[type="text"]:hover{
+    box-shadow: 2px 2px 10px rebeccapurple;
+}
+button {
+    margin-top: 10px;
+    z-index: 1;
+    position: relative;
+    font-size: inherit;
+    font-family: inherit;
+    font-size: 25px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    color: white;
+    padding: 0.5em 1em;
+    outline: none;
+    border: none;
+    background-color: hsl(0, 0%, 0%);
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
+}
+
+button::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    transform-origin: center;
+    transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
+    transition: transform 0.30s ease-in-out;
+}
+
+button:hover {
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    box-shadow: 2px 2px 10px rebeccapurple;
+}
+
+button:hover::before {
+    transform: translate3d(-50%, -50%, 0) scale3d(15, 15, 15);
+}
+
+input:checked+p {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: rgb(255, 0, 0);
+}
+
+p {
+    display: inline-block;
+    padding-right: 20px;
+}
